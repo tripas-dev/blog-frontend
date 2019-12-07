@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircle from '@material-ui/icons/AccountCircle'
 import {
   AppBar,
   Toolbar,
@@ -14,72 +14,74 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
     flexGrow: 1,
+    fontFamily: ['Montserrat', 'sans-serif'],
+    fontSize: '1.75rem'
   },
   subtitle: {
     flexGrow: 1,
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-end'
   },
   link: {
     color: 'black',
     textDecoration: 'none'
   }
-}));
+}))
 
-export default function Header() {
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  
+export default function Header () {
+  const [auth, setAuth] = React.useState(true)
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
+
   const appBarCustomStyle = {
     background: 'transparent',
     boxShadow: 'none',
     color: 'black',
     fontWeight: 'bold'
   }
-  const classes = useStyles();
-  
+  const classes = useStyles()
+
   const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
-  };
-  
+    setAnchorEl(event.currentTarget)
+  }
+
   const handleClose = () => {
-    setAnchorEl(null);
-  };
-  
+    setAnchorEl(null)
+  }
+
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={appBarCustomStyle}>
+      <AppBar position='static' style={appBarCustomStyle}>
         <Toolbar>
-          <Typography variant="h5"  className={classes.title}>
-            <Link to="/" className={classes.link}>bulshitagem</Link>
+          <Typography variant='h5'  className={classes.title}>
+            <Link to='/' className={classes.link}>bullshitted</Link>
           </Typography>
           {auth && (
             <div>
-              <Button color="inherit">
-                <Link to="/posts" className={classes.link}>posts</Link>
+              <Button color='inherit'>
+                <Link to='/posts' className={classes.link}>posts</Link>
               </Button>
-              <Button color="inherit">
-                <Link to="/about" className={classes.link}>about</Link>
+              <Button color='inherit'>
+                <Link to='/about' className={classes.link}>about</Link>
               </Button>
               <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
                 onClick={handleMenu}
-                color="inherit">
+                color='inherit'>
                 <AccountCircle />
               </IconButton>
               <Menu
-                id="menu-appbar"
+                id='menu-appbar'
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: 'top',
@@ -102,5 +104,5 @@ export default function Header() {
         </Toolbar>
       </AppBar>
     </div>
-  );
+  )
 }
