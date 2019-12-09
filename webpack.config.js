@@ -29,12 +29,16 @@ module.exports = validate({
 				loader: 'standard'
 			}
 		],
-        loaders: [
+		loaders: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				include: /src/,
 				loader: 'babel'
+			},
+			{
+				test: /\.json$/,
+				loader: 'json-loader'
 			}
 		]
 	}

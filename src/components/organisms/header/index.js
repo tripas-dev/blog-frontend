@@ -2,6 +2,7 @@
 
 import React from 'react'
 import AccountCircle from '@material-ui/icons/AccountCircle'
+import { Link } from 'react-router-dom'
 import {
   AppBar,
   Toolbar,
@@ -12,7 +13,6 @@ import {
   MenuItem,
   makeStyles
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     fontFamily: ['Montserrat', 'sans-serif'],
-    fontSize: '1.75rem'
+    fontSize: '1.75rem',
+    fontWeight: 'bold'
   },
   subtitle: {
     flexGrow: 1,
@@ -60,8 +61,8 @@ export default function Header () {
   return (
     <div className={classes.root}>
       <AppBar position='static' style={appBarCustomStyle}>
-        <Toolbar>
-          <Typography variant='h5'  className={classes.title}>
+        <Toolbar style={{ paddingLeft: 0 }}>
+          <Typography variant='h5' className={classes.title}>
             <Link to='/' className={classes.link}>bullshitted</Link>
           </Typography>
           {auth && (
@@ -85,18 +86,20 @@ export default function Header () {
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: 'top',
-                  horizontal: 'right',
+                  horizontal: 'right'
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: 'top',
-                  horizontal: 'right',
+                  horizontal: 'right'
                 }}
                 open={open}
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Write</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link to='/editor' className={classes.link}>Write</Link>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>logout</MenuItem>
               </Menu>
             </div>

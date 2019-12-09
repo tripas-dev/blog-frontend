@@ -1,6 +1,7 @@
 import Home from '../components/pages/home'
 import About from '../components/pages/about'
 import Posts from '../components/pages/posts'
+import Editor from '../components/pages/editor'
 
 const publicRoutes = {
   rootPath: "/",
@@ -20,6 +21,11 @@ const publicRoutes = {
       name: 'about',
       path: '/about',
       comp: About
+    },
+    {
+      name: 'editor',
+      path: '/editor',
+      comp: Editor
     }
   ]
 }
