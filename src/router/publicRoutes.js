@@ -1,3 +1,5 @@
+'use strict'
+
 import Home from '../components/pages/home'
 import About from '../components/pages/about'
 import Posts from '../components/pages/posts'
